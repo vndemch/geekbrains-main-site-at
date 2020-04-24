@@ -1,8 +1,11 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -13,23 +16,28 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-
+@Epic(value = "Тест сайта Geekbrains")
+@Feature(value = "Проверка с переходами по странице")
 public class AuthorizationTest extends BaseTest{
 
+    private String userlogin = "hao17583@bcaoo.com";
+    private String userpwd = "hao17583";
+
+    @Story(value = "Авторизация")
+    @Step("Тестирование авторизации")
+    @Description("Проверка входа с заданными параметрами")
     @Test
+    @DisplayName("Проверка входа с заданными идентификационными данными")
     public void AuthorizTest(){
         WebDriverWait wait = new WebDriverWait(driver, 30);
 //        1. Перейти на страницу авторизация https://geekbrains.ru/login
         driver.get("https://geekbrains.ru/login");
 //        2. Ввести логин : hao17583@bcaoo.com
 //        3. Пароль: hao17583
-        driver.findElement(By.xpath("//*[@id=\"user_email\"]"))
-                .sendKeys("hao17583@bcaoo.com");
-        driver.findElement(By.xpath("//*[@id=\"user_password\"]"))
-                .sendKeys("hao17583");
-//        4. Нажать кнопку войти
-        driver.findElement(By.xpath("//*[@data-testid=\"login-submit\"]")).click();
-//        5. Проверить что отобразилась страница "Главная"
+        AuthorizationClass authorizationClass =
+                PageFactory.initElements(driver,AuthorizationClass.class);
+                authorizationClass.userLogin(userlogin,userpwd);
+        //  5. Проверить, что отобразилась страница "Главная"
         WebElement pageTitle = driver.findElement(By.cssSelector("[class=\"gb-header__title\"]"));
         //assertThat("Главная",equalToIgnoringWhiteSpace(pageTitle.getText()));
         assertEquals("Главная", pageTitle.getText());

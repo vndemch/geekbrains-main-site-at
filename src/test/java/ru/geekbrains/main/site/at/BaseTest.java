@@ -1,6 +1,7 @@
 package ru.geekbrains.main.site.at;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,16 +20,19 @@ public class BaseTest {
     protected WebDriver driver;
     protected Navigation navigation;
 
+    @Step ("Проверка Заголовка")
     void HeaderCheck () {
         WebElement header = driver.findElement(By.cssSelector("header[id=\"top-menu\"]"));
         Assertions.assertTrue(header.isDisplayed());
     }
 
+    @Step("Проверка футера")
     void FooterCheck () {
         WebElement footer = driver.findElement(By.cssSelector("footer[class=\"site-footer\"]"));
         Assertions.assertTrue(footer.isDisplayed());
     }
 
+    @Step("Запуск браузера")
     @BeforeEach
     void setUp() {
         //System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
@@ -47,6 +51,7 @@ public class BaseTest {
         navigation = PageFactory.initElements(driver,Navigation.class);
     }
 
+    @Step("Закрытие браузера")
     @AfterEach
     void tearDown() {
         if (driver != null) {

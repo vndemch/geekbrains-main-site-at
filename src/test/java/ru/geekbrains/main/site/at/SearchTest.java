@@ -1,6 +1,8 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,9 +15,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.equalTo;
 
+@Epic(value = "Тест сайта Geekbrains")
+@Feature(value = "Проверка с переходами по странице")
 public class SearchTest extends BaseTest {
 
+    @Story(value = "Проверка поисковой системы сайта")
+    @Step("Проверка поиска")
     @Test
+    @DisplayName("Тест ввода текста")
     void EnterTextTest() throws InterruptedException {
         driver.get("https://geekbrains.ru/career");
         //    Нажать на кнопку Поиск
