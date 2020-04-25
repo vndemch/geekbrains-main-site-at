@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PhoneRegistry {
-    public Map<String,String> phonebook = new HashMap<String,String>();
+    private Map<String,String> phonebook = new HashMap<>();
 
     // Инициализируем список
     PhoneRegistry(){
