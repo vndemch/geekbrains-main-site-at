@@ -5,7 +5,7 @@ package ru.geekbrains.main.site.at.examples;
 public class WorkWithLists {
     public static void main(String[] args) {
         // Создаем список
-        List srcList = new ArrayList();
+        List<String> srcList = new ArrayList();
         // Заоплняем список с повторами
         srcList.add("Первый");
         srcList.add("Второй");
@@ -20,7 +20,8 @@ public class WorkWithLists {
         srcList.add("Пятый");
         srcList.add("Седьмой");
         // Создаем набор
-        Set destList = new HashSet();
+
+        Set<String> destList = new HashSet();
 
         // Выводим элементы списка
         for (Object listElement: srcList){
