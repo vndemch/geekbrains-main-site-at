@@ -15,5 +15,9 @@ mvn clean test allure.serve
 - webdrivermanager
 - allure-junit5
 
+## Используемые плагины:
+- maven-compiler-plugin
+- allure-maven
+- maven-surefire-plugin
 
 

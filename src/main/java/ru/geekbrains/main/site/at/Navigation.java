@@ -17,12 +17,6 @@ public class Navigation {
     private WebElement careerButton;
     @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/courses\"]")
     private WebElement coursesButton;
-    @FindBy(css = "[class=\"gb-header__title\"]")
-    private WebElement navPageTitle;
-
-    public WebElement getNavPageTitle() {
-        return navPageTitle;
-    }
 
     public void eventsButtonClick() {
         eventsButton.click();

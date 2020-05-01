@@ -19,9 +19,9 @@ public class NavigationTest extends BaseTest {
     @MethodSource("stringProvider")
     void testWithArgMethodSource(String str) {
         driver.get("https://geekbrains.ru/career");
-        navigation.ButtonClick(str);
+        page.getNavigation().ButtonClick(str);
 
-        assertEquals(str, navigation.getNavPageTitle().getText());
+        assertEquals(str, page.getNavPageTitle().getText());
         HeaderCheck();
         FooterCheck();
     }

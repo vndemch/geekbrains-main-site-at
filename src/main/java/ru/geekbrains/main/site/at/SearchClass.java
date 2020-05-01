@@ -23,6 +23,28 @@ public class SearchClass {
     @FindBy(xpath = "//div[@class='search-page-block'][7]/div[@class='stickyTitleWrap']/header/h2")
     private WebElement ProjectsAndCompaniesBlock;
 
+    @FindBy(xpath = "//*[@id=\"professions\"]/div[1]/header/ul/li/a/span")
+    private WebElement ProfessionsCount;
+    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='courses']/span")
+    private WebElement CoursesCount;
+    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='webinars']/span")
+    private WebElement EventsCount;
+    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='blogs']/span")
+    private WebElement PostsCount;
+    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='forums']/span")
+    private WebElement TopicsCount;
+    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='blogs']/span")
+    private WebElement TestsCount;
+    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='blogs']/span")
+    private WebElement ProjectsAndCompaniesCount;
+
+    @FindBy(xpath = "//*[@id=\"top-menu\"]/div/ul/li[2]/a")
+    private WebElement searchField;
+    @FindBy(css = "[class=\"search-panel__search-field\"]")
+    private WebElement searchString;
+
+
+
     public WebElement getProfessionsBlock() {
         return ProfessionsBlock;
     }
@@ -51,26 +73,6 @@ public class SearchClass {
         return ProjectsAndCompaniesBlock;
     }
 
-
-    @FindBy(xpath = "//*[@id=\"professions\"]/div[1]/header/ul/li/a/span")
-    private WebElement ProfessionsCount;
-    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='courses']/span")
-    private WebElement CoursesCount;
-    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='webinars']/span")
-    private WebElement EventsCount;
-    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='blogs']/span")
-    private WebElement PostsCount;
-    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='forums']/span")
-    private WebElement TopicsCount;
-    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='blogs']/span")
-    private WebElement TestsCount;
-    @FindBy(xpath = "//header[@class='search-page-block__header']/ul/li/a[@data-tab='blogs']/span")
-    private WebElement ProjectsAndCompaniesCount;
-
-    @FindBy(xpath = "//*[@id=\"top-menu\"]/div/ul/li[2]/a")
-    private WebElement searchField;
-    @FindBy(css = "[class=\"search-panel__search-field\"]")
-    private WebElement searchString;
 
     public WebElement getSearchField() {
         return searchField;

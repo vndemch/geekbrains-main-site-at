@@ -25,10 +25,6 @@ public class SearchTest extends BaseTest {
     @DisplayName("Тест ввода текста")
     void EnterTextTest() throws InterruptedException {
         driver.get("https://geekbrains.ru/career");
-        //    Нажать на кнопку Поиск
-//        driver.findElement(By.xpath("//*[@id=\"top-menu\"]/div/ul/li[2]/a")).click();
-//        //    В поле Поиск ввести текст: java
-//        driver.findElement(By.cssSelector("[class=\"search-panel__search-field\"]")).sendKeys("java");
         //    Проверить, что отобразились блоки:
         SearchClass searchClass = PageFactory.initElements(driver,SearchClass.class);
         searchClass.sendSearchString("java");

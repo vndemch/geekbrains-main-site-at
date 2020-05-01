@@ -18,7 +18,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected Navigation navigation;
+    //protected Navigation navigation;
+    protected Page page;
 
     @Step ("Проверка Заголовка")
     void HeaderCheck () {
@@ -48,7 +49,8 @@ public class BaseTest {
         // Изначально браузер открывается в полэкрана шириной и боковое меню не отображается
         // fullscreen() не отрабатывает и после максимизации возвращается к исходному размеру
         driver.manage().window().setSize(new Dimension(1200, 1000));
-        navigation = PageFactory.initElements(driver,Navigation.class);
+        page = PageFactory.initElements(driver,Page.class);
+        //navigation = PageFactory.initElements(driver,Navigation.class);
     }
 
     @Step("Закрытие браузера")

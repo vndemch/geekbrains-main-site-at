@@ -14,7 +14,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 @Epic(value = "Тест сайта Geekbrains")
 @Feature(value = "Проверка с переходами по странице")
@@ -34,13 +33,11 @@ public class AuthorizationTest extends BaseTest{
         driver.get("https://geekbrains.ru/login");
 //        2. Ввести логин : hao17583@bcaoo.com
 //        3. Пароль: hao17583
-        AuthorizationClass authorizationClass =
-                PageFactory.initElements(driver,AuthorizationClass.class);
+        AuthorizationPage authorizationClass =
+                PageFactory.initElements(driver, AuthorizationPage.class);
                 authorizationClass.userLogin(userlogin,userpwd);
         //  5. Проверить, что отобразилась страница "Главная"
-        WebElement pageTitle = driver.findElement(By.cssSelector("[class=\"gb-header__title\"]"));
-        //assertThat("Главная",equalToIgnoringWhiteSpace(pageTitle.getText()));
-        assertEquals("Главная", pageTitle.getText());
+        authorizationClass.checkTitle("Главная");
 //        6. Нажать в навигации "Курсы"
         driver.findElement(By.cssSelector("[class*=\"main-page-hidden\"] [href=\"/courses\"]"))
                 .click();
@@ -49,13 +46,8 @@ public class AuthorizationTest extends BaseTest{
         wait.until(d->headerCoursesButton.isDisplayed());
         headerCoursesButton.click();
 
-//        8. Выбрать в фильтрах чекбокс "Бесплатные"
-        driver.findElement(By.xpath("//*[@id=\"filter-0\"]"))
-                .click();
-//        9. Выбрать в фильтрах чекбокс "Тестирование"
-        driver.findElement(By.xpath("//*[@id=\"filter-9\"]"))
-                .click();
-//        10. Проверить что в выборке отображается курсы "Тестирование ПО. Уровень 1"
+        authorizationClass.checkBoxesSwitch();
+        //        10. Проверить что в выборке отображается курсы "Тестирование ПО. Уровень 1"
 //        11. Проверить что в выборке отображается курсы "Тестирование ПО. Уровень 2"
         List<WebElement> coursesList = driver.findElements(
                 By.xpath("//*/span[@class=\"gb-course-card__title-text\"]"));
